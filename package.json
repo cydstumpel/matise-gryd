@@ -6,7 +6,7 @@
 		"url": "git+https://github.com/matiseams/gryd.git",
 		"type": "git"
 	},
-	"main": "index.scss",
+	"main": "gryd-index.scss",
 	"authors": [
 		"Cyd Stumpel <cyd@matise.nl>"
 	],
