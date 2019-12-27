@@ -7,14 +7,29 @@ module.exports = {
 				title: "Get started",
 				collapsable: false,
 				children: [
-					"get-started/install"
+					"get-started/install",
+					"get-started/defaults"
 				]
 			},
 			{
 				title: "Grid",
 				collapsable: false,
 				children: [
-					"grid/philosophy"
+					"grid/grid"
+				]
+			},
+			{
+				title: "Colors",
+				collapsable: false,
+				children: [
+					"colors/colors"
+				]
+			},
+			{
+				title: "Typography",
+				collapsable: false,
+				children: [
+					"typography/typography"
 				]
 			}
 		],
