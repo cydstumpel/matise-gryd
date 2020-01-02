@@ -31,6 +31,13 @@ module.exports = {
 				children: [
 					"typography/typography"
 				]
+			},
+			{
+				title: "Mixins",
+				collapsable: false,
+				children: [
+					"mixins/mixins"
+				]
 			}
 		],
 		configureWebpack: {

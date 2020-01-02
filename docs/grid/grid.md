@@ -52,7 +52,7 @@ The following section will take up one third of the available width on large (se
 <section class="news-overview column small-full medium-half large-third"></section>
 ```
 ::: warning
-The classes will not work unless the `.column` class is set on the element and are dependent on screen sizes.
+The classes will not work unless the `.column` class is set on the element and are dependent on container sizes.
 :::
 
 You can also add a `.row` class to the container element which adds `display: flex` and some complementary styles to the container.

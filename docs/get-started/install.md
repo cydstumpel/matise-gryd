@@ -33,7 +33,7 @@ Files to import in your app.scss file:
 ```
 
 ## For Nuxt
-At Matise we develop a lot with Vue's Nuxt so I included a way to import it in every component.
+At Matise we develop a lot with Vue's Nuxt so I included a way to import matise-gryd's funtions and variables in every component.
 
 You can import the files as above in your app.scss file but then you won't have the functions automagically available in your components. At [Matise](https://matise.nl) we use the [style-resources-module](https://github.com/nuxt-community/style-resources-module), it allows you to globally add functions and variables. We import the app.scss separately to make sure those styles won't be imported multiple times.
 
