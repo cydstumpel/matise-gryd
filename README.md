@@ -9,4 +9,4 @@ npm i matise-gryd
 ```
 
 ## Documentation
-[gryd.matise.nl](gryd.matise.nl)
+[gryd.matise.nl](https://gryd.matise.nl/)
