@@ -1,23 +1,7 @@
-@mixin font-include($name, $file, $weight: ('normal'), $type: ('normal'), $files: ('eot', 'woff', 'svg', 'ttf'), $path: $base-font-path) {
+@mixin font-include($name, $file, $weight: ('normal'), $type: ('normal'), $files: (), $path: $base-font-path) {
 	$src: ();
-	@if list-contains($files, 'woff') {
-		$value: "url('#{$path}/#{$file}.woff') format('woff')";
-		$src: append($src, $value);
-	}
-	@if list-contains($files, 'woff2') {
-		$value: "url('#{$path}/#{$file}.woff2') format('woff2')";
-		$src: append($src, $value);
-	}
-	@if list-contains($files, 'ttf') {
-		$value: "url('#{$path}/#{$file}.ttf') format('truetype')";
-		$src: append($src, $value);
-	}
-	@if list-contains($files, 'otf') {
-		$value: "url('#{$path}/#{$file}.otf') format('otf')";
-		$src: append($src, $value);
-	}
-	@if list-contains($files, 'svg') {
-		$value: "url('#{$path}/#{$file}.svg##{$name}') format('svg')";
+	@each $file-type in $files {
+		$value: "url('#{$path}/#{$file}.#{$file-type}') format('#{$file-type}')";
 		$src: append($src, $value);
 	}
 
@@ -29,7 +13,7 @@
 			src: to-string($src, ',');
 			font-weight: $weight;
 			font-family: $name;
-			font-style: unquote($type);
+			font-style: $type;
 		};
 	}
 }

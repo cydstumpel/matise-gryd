@@ -1,6 +1,6 @@
 {
 	"name": "matise-gryd",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "A simple scss framework based on Henris.",
 	"repository": {
 		"url": "git+https://github.com/matiseams/gryd.git",
