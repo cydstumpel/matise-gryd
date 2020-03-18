@@ -82,6 +82,10 @@
 			@if map-has-key($font, 'files') {
 				$font-files: map-get($font, 'files');
 			}
+			// Check if a font display have been set
+			@if map-has-key($font, 'display') {
+				$font-display: map-get($font, 'display');
+			}
 			// Get the font name
 			$font-name: convertToFontname($font, true);
 
@@ -93,7 +97,8 @@
 					map-get($font, weights),
 					$font-types,
 					$font-files,
-					$font-path
+					$font-path,
+					$font-display
 				);
 			}
 
