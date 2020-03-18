@@ -47,6 +47,7 @@
 	$font-types: ('normal') !default;
 	$font-path: $base-font-path !default;
 	$font-files: ('eot', 'woff', 'svg', 'ttf');
+	$font-display: 'auto';
 	$family: '';
 	//
 	// Check if the variable is a map
