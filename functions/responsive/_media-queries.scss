@@ -27,8 +27,8 @@ $media-queries: (
 	'xlarge-up': create-media-query(map-get($grid-breakpoints, 'large'), 9999),
 	'xlarge-down': create-media-query(0, map-get($grid-breakpoints, 'xlarge')),
 	'xxlarge-only': create-media-query(map-get($grid-breakpoints, 'xlarge'), map-get($grid-breakpoints, 'xxlarge')),
-	'xxlarge-up': create-media-query(map-get($grid-breakpoints, 'xlarge'), 9999),
-	'xxlarge-down': create-media-query(0, 9999),
+	'xxlarge-up': create-media-query(map-get($grid-breakpoints, 'xxlarge'), 9999),
+	'xxlarge-down': create-media-query(0, map-get($grid-breakpoints, 'xxlarge')),
 	'landscape': 'screen and (orientation: landscape)',
 	'portrait': 'screen and (orientation: portrait)'
 );
