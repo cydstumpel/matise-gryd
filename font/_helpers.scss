@@ -48,16 +48,16 @@ $font-quaternary: null !default;
 		}
 	} @else {
 		@if type-of($font-primary) !=
-			"map"
-			and
-			type-of($font-secondary) !=
-			"map"
-			and
-			type-of($font-tertiary) !=
-			"map"
-			and
-			type-of($font-quaternary) !=
-			"map"
+		"map"
+		and
+		type-of($font-secondary) !=
+		"map"
+		and
+		type-of($font-tertiary) !=
+		"map"
+		and
+		type-of($font-quaternary) !=
+		"map"
 		{
 			@warn 'there are not fonts defined to create weights';
 			@return null;
@@ -102,16 +102,16 @@ $font-quaternary: null !default;
 		}
 	} @else {
 		@if type-of($font-primary) !=
-			"map"
-			and
-			type-of($font-secondary) !=
-			"map"
-			and
-			type-of($font-tertiary) !=
-			"map"
-			and
-			type-of($font-quaternary) !=
-			"map"
+		"map"
+		and
+		type-of($font-secondary) !=
+		"map"
+		and
+		type-of($font-tertiary) !=
+		"map"
+		and
+		type-of($font-quaternary) !=
+		"map"
 		{
 			@warn 'there are not fonts defined to create weights';
 			@return null;
@@ -147,12 +147,20 @@ $font-quaternary: null !default;
 //
 // Define where to use the font directly from the embed
 //
-@mixin font-use($use, $family) {
+@mixin font-use($use, $font) {
+	$family: map-get($font, 'font-family');
 	@if output(typography-usage) {
 		@if (type-of($use) == 'list') {
 			@each $selector in $use {
-				#{$selector} {
-					font-family: #{font-quotes($family)};
+				$font-styles: map-get($font, 'types');
+				@if (length($font-styles) > 1) {
+					@each $font-style in $font-styles {
+						@if ($font-style == 'normal') {
+							#{$selector} {
+								font-family: #{font-quotes($family)};
+							}
+						}
+					}
 				}
 			}
 		} @else {

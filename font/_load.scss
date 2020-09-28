@@ -10,6 +10,9 @@
 			@if (str-index($name, ' ')) {
 				$name: '#{$name}';
 			}
+			@if ($type == 'italic') {
+				$name: '#{$name}#{$type}';
+			}
 			src: to-string($src, ',');
 			font-weight: $weight;
 			font-family: $name;
@@ -105,7 +108,7 @@
 
 			// Set use
 			@if map-has-key($font, 'use') {
-				@include font-use(map-get($font, 'use'), map-get($font, 'font-family'));
+				@include font-use(map-get($font, 'use'), $font);
 			}
 			$weight-classes: false;
 			@if map-has-key($font, 'weight-classes') {
