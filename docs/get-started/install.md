@@ -12,21 +12,21 @@ We created npx commands to create a nuxt or Wordpress website in an instant, we 
 ### Wordpress
 [![NPM version](https://img.shields.io/npm/v/automatise-wordpress.svg?style=flat)](https://npmjs.com/package/automatise-wordpress) [![NPM downloads](https://img.shields.io/npm/dm/automatise-wordpress.svg?style=flat)](https://npmjs.com/package/automatise-wordpress)
 ```bash
-npx automatise wordpress
+npx automatise-wordpress
 ```
 ### Nuxt
 [![NPM version](https://img.shields.io/npm/v/automatise-nuxt.svg?style=flat)](https://npmjs.com/package/automatise-nuxt) [![NPM downloads](https://img.shields.io/npm/dm/automatise-nuxt.svg?style=flat)](https://npmjs.com/package/automatise-nuxt)
 ```bash
-npx automatise nuxt
+npx automatise-nuxt
 ```
 
 ## Importing
 Files to import in your app.scss file:
 ```sass
-	@import 'color/index'
+	@import 'color/index';
 	// @import your custom color file here ^
 	@import 'gryd-index';
-	@import 'typography/typography'
+	@import 'typography/typography';
 	// @import your custom typography file here ^
 	@import 'gryd-once';
 	// @import add the rest of your files here.
