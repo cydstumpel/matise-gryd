@@ -1,7 +1,13 @@
-@mixin font-include($name, $file, $weight: ('normal'), $type: ('normal'), $files: (), $path: $base-font-path, $font-display: 'auto') {
+@mixin font-include($name, $file, $weight: ('normal'), $type: ('normal'), $files: (), $path: $base-font-path, $font-display: 'auto', $variable: false) {
 	$src: ();
+	@if ($variable) {
+		$format: '#{$file-type}-variations';
+		$files: ('woff2')
+	}
 	@each $file-type in $files {
-		$value: "url('#{$path}/#{$file}.#{$file-type}') format('#{$file-type}')";
+		$format: $file-type !default;
+
+		$value: "url('#{$path}/#{$file}.#{$file-type}') format('#{$format}')";
 		$src: append($src, $value);
 	}
 
@@ -22,19 +28,21 @@
 	}
 }
 
-@mixin font-list( $title, $name, $weights, $types: ('normal'), $files: ('eot', 'woff', 'svg', 'ttf'), $path: $base-font-path, $font-display: 'auto') {
+@mixin font-list( $title, $name, $weights, $variable: false, $types: ('normal'), $files: ('eot', 'woff', 'svg', 'ttf'), $path: $base-font-path, $font-display: 'auto') {
 	@each $type in $types {
 		$italic: '';
 		@if $type == 'italic' {
 			$italic: 'Italic';
 		}
-		@if $weights != null {
+		@if $variable and $weights != null {
+			@include font-include(font-quotes($title), unquote('#{$name}#{$italic}'), $weights, $type, $files, $path, $font-display, $variable);
+		} @else if $weights != null {
 			@for $i from 1 through length($weights) {
 				$weight: nth($weights, $i);
-				@include font-include(font-quotes($title), unquote('#{$name}-#{nth($weight, 1)}#{$italic}'), nth($weight, 2), $type, $files, $path, $font-display);
+				@include font-include(font-quotes($title), unquote('#{$name}-#{nth($weight, 1)}#{$italic}'), nth($weight, 2), $type, $files, $path, $font-display, $variable);
 			}
 		} @else {
-			@include font-include(font-quotes($title), unquote('#{$name}#{$italic}'), 'normal', $type, $files, $path, $font-display);
+			@include font-include(font-quotes($title), unquote('#{$name}#{$italic}'), 'normal', $type, $files, $path, $font-display, $variable);
 		}
 	}
 }
@@ -49,8 +57,9 @@
 	$font-name: '';
 	$font-types: ('normal') !default;
 	$font-path: $base-font-path !default;
-	$font-files: ('eot', 'woff', 'svg', 'ttf');
+	$font-files: ('woff2', 'woff', 'ttf');
 	$font-display: 'auto';
+	$font-variable: false;
 	$family: '';
 	//
 	// Check if the variable is a map
@@ -90,6 +99,10 @@
 			@if map-has-key($font, 'display') {
 				$font-display: map-get($font, 'display');
 			}
+			// Check if font is variable
+			@if map-has-key($font, 'variable') {
+				$font-variable: map-get($font, 'variable');
+			}
 			// Get the font name
 			$font-name: convertToFontname($font, true);
 
@@ -99,6 +112,7 @@
 					convertToFontname($font),
 					convertToFontname($font, true),
 					map-get($font, weights),
+					$font-variable,
 					$font-types,
 					$font-files,
 					$font-path,
