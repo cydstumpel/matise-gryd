@@ -127,6 +127,11 @@
 			$weight-classes: false;
 			@if map-has-key($font, 'weight-classes') {
 				$weight-classes: map-get($font, 'weight-classes');
+				@each $weight, $value in map-get($font, 'weights') {
+					.font-#{to-lower-case($weight)} {
+						font-weight: #{$value};
+					}
+				}
 			}
 			@if map-has-key($font, 'types') {
 				@each $type in map-get($font, 'types') {
