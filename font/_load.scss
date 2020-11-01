@@ -1,7 +1,7 @@
 @mixin font-include($name, $file, $weight: ('normal'), $type: ('normal'), $files: (), $path: $base-font-path, $font-display: 'auto', $variable: false) {
 	$src: ();
 	@if ($variable) {
-		$format: '#{$file-type}-variations';
+		$format: 'woff2-variations';
 		$files: ('woff2')
 	}
 	@each $file-type in $files {
