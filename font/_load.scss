@@ -20,9 +20,9 @@
 				$name: '#{$name}#{$type}';
 			}
 			src: to-string($src, ',');
-			font-weight: $weight;
+			font-weight: unquote($weight);
 			font-family: $name;
-			font-style: $type;
+			font-style: unquote($type);
 			font-display: $font-display;
 		};
 	}
@@ -58,7 +58,7 @@
 	$font-types: ('normal') !default;
 	$font-path: $base-font-path !default;
 	$font-files: ('woff2', 'woff', 'ttf');
-	$font-display: 'auto';
+	$font-display: auto;
 	$font-variable: false;
 	$family: '';
 	//
