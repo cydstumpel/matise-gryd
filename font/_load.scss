@@ -20,10 +20,10 @@
 				$name: '#{$name}#{$type}';
 			}
 			src: to-string($src, ',');
-			font-weight: unquote($weight);
+			font-weight: $weight;
 			font-family: $name;
 			font-style: unquote($type);
-			font-display: $font-display;
+			font-display: unquote($font-display);
 		};
 	}
 }
