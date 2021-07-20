@@ -8,6 +8,8 @@
 /// @parameter String String
 
 // Make str replace accept lists.
+@use "sass:math";
+
 @function str-replace($haystack, $needles, $replacers: '') {
 	// Check if the $needle argument is a list and based of that
 	// go through the list replace all instances.
@@ -121,7 +123,7 @@
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+    @return math.div($number, $number * 0 + 1);
   }
 
   @return $number;

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @function grid($value) {
 	$values: null;
 	@if length($value) > 1 {
@@ -13,13 +15,13 @@
 
 
 @function calc-grid($value) {
-	$calculation: (100 / $grid-columns) * $value;
+	$calculation: math.div(100, $grid-columns) * $value;
 	@return unquote("#{$calculation}vw");
 }
 
 
 @function rem-calc($value, $base-value: $base-font-size) {
-	$value: strip-unit($value) / strip-unit($base-value) * 1rem;
+	$value: math.div(strip-unit($value), strip-unit($base-value)) * 1rem;
 	@if ($value == 0rem) {
 		$value: 0;
 	} // Turn 0rem into 0

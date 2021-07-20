@@ -1,11 +1,13 @@
+@use "sass:math";
+
 @function grid-mq-min($grid-size, $boundary-px) {
-	$max-screenwidth: ($boundary-px/ $grid-size) * $grid-columns;
+	$max-screenwidth: math.div($boundary-px, $grid-size) * $grid-columns;
 	$result: 'only screen and (max-width: #{$max-screenwidth}px)';
 	@return $result;
 }
 
 @function grid-mq-max($grid-size, $boundary-px) {
-	$min-screenwidth: ($boundary-px / $grid-size) * $grid-columns;
+	$min-screenwidth: math.div($boundary-px, $grid-size) * $grid-columns;
 	$result: 'only screen and (min-width: #{$min-screenwidth}px)';
 	@return $result;
 }
